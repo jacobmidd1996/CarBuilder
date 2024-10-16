@@ -60,8 +60,7 @@ class Cli {
           type: "list",
           name: "vehicleType",
           message: "Select a vehicle type",
-          // TODO: Update the choices array to include Truck and Motorbike
-          choices: ["Car"],
+          choices: ["Car", "Truck", "Motorbike"],
         },
       ])
       .then((answers) => {
@@ -247,10 +246,23 @@ class Cli {
         },
       ])
       .then((answers) => {
-        // TODO: Use the answers object to pass the required properties to the Motorbike constructor
-        // TODO: push the motorbike to the vehicles array
-        // TODO: set the selectedVehicleVin to the vin of the motorbike
-        // TODO: perform actions on the motorbike
+        const motorbike = new Motorbike(
+          // The generateVin method is static and should be called using the class name Cli
+          Cli.generateVin(),
+          answers.color,
+          answers.make,
+          answers.model,
+          parseInt(answers.year),
+          parseInt(answers.weight),
+          parseInt(answers.topSpeed),
+          []
+        );
+        // push the car to the vehicles array
+        this.vehicles.push(motorbike);
+        // set the selectedVehicleVin to the vin of the truck
+        this.selectedVehicleVin = motorbike.vin;
+        // perform actions on the car
+        this.performActions();
       });
   }
 
@@ -292,7 +304,6 @@ class Cli {
           type: "list",
           name: "action",
           message: "Select an action",
-          // TODO: add options to tow and wheelie
           choices: [
             "Print details",
             "Start vehicle",
@@ -304,6 +315,8 @@ class Cli {
             "Reverse",
             "Select or create another vehicle",
             "Exit",
+            "tow",
+            "wheelie",
           ],
         },
       ])
