@@ -170,10 +170,24 @@ class Cli {
         },
       ])
       .then((answers) => {
-        // TODO: Use the answers object to pass the required properties to the Truck constructor
-        // TODO: push the truck to the vehicles array
-        // TODO: set the selectedVehicleVin to the vin of the truck
-        // TODO: perform actions on the truck
+        const truck = new Truck(
+          // The generateVin method is static and should be called using the class name Cli
+          Cli.generateVin(),
+          answers.color,
+          answers.make,
+          answers.model,
+          parseInt(answers.year),
+          parseInt(answers.weight),
+          parseInt(answers.topSpeed),
+          [],
+          parseInt(answers.towingCapacity)
+        );
+        // push the car to the vehicles array
+        this.vehicles.push(truck);
+        // set the selectedVehicleVin to the vin of the truck
+        this.selectedVehicleVin = truck.vin;
+        // perform actions on the car
+        this.performActions();
       });
   }
 
@@ -242,7 +256,7 @@ class Cli {
 
   // method to find a vehicle to tow
   // TODO: add a parameter to accept a truck object
-  findVehicleToTow(): void {
+  findVehicleToTow(truck: Truck): void {
     inquirer
       .prompt([
         {
@@ -258,9 +272,15 @@ class Cli {
         },
       ])
       .then((answers) => {
-        // TODO: check if the selected vehicle is the truck
-        // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
-        // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
+        // check if the selected vehicle is the truck
+        if (answers.vehicleToTow.vin === truck.vin) {
+          // log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
+          console.log(`${truck.vin} cannot tow itself`);
+          this.performActions();
+        } else {
+          truck.tow(answers.vehicleToTow);
+          this.performActions();
+        }
       });
   }
 
