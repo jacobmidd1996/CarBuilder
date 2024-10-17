@@ -1,19 +1,48 @@
-# CarBuilder
+# < Carbuilder >
 
-GIVEN a command-line application that accepts user input
-WHEN I am prompted to create a new vehicle or existing vehicle
-THEN I can choose between the two options
-WHEN I am prompted to choose the vehicle type during creation
-THEN I can choose between car, truck, and motorbike
-WHEN I am prompted for details about the vehicle
-THEN I can enter the vehicle information
-WHEN I have entered all the vehicle information
-THEN I can use the created vehicle
-WHEN I select an existing vehicle
-THEN I can use the selected existing vehicle
-WHEN I have created a new vehicle or selected an existing vehicle
-THEN I can perform actions with that vehicle
-WHEN I perform an action with a vehicle
-THEN I see the result of the action in the command-line
-WHEN I complete the process of performing an action
-THEN I can perform additional actions until I choose to exit
+<div align="center">
+  <a href="https://github.com/Jacobmidd1996">
+    <img src="https://static.wikia.nocookie.net/hades_gamepedia_en/images/f/f5/Odysseus_PH.png/revision/latest/scale-to-width-down/1000?cb=20240418154503" alt="Logo" width="80" height="80">
+  </a>
+</div>
+
+## Description
+
+This Application will allow you to create a car, truck, or motorbike and make it perform certain actions
+
+My motivation was to create an application that will allow you to generate and play with anykind of vehicle. to show what typescript can do and how npm can be used in the terminal. i learned how to better use typescript, and NPM. fun car building options as well as wheelie and tow actions.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [tests](#tests)
+- [contact](#contact)
+
+## Installation
+
+npm i
+
+## Usage
+
+npm i, npm start
+
+## Credits
+
+me and me alone
+
+## License
+
+[![License: Artistic 2.0](https://img.shields.io/badge/License-artistic_2.0-yellow.svg)](https://opensource.org/license/artistic-2-0)
+[Check it out!](https://opensource.org/license/artistic-2-0)
+
+## Tests
+
+npm i, npm start
+
+## Contact
+
+Github: [Click to visit](https://github.com/Jacobmidd1996)
+Email: debacled1996@gmail.com
